@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 10 juin 2019 à 15:00
+-- Généré le :  lun. 10 juin 2019 à 15:09
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.3.1
 
@@ -21,21 +21,23 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `planteco`
 --
+DROP DATABASE IF EXISTS `planteco`;
+CREATE DATABASE IF NOT EXISTS `planteco` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `planteco`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `rasperryplants`
+-- Structure de la table `rasplants`
 --
 
-DROP TABLE IF EXISTS `rasperryplants`;
-CREATE TABLE IF NOT EXISTS `rasperryplants` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `rasplants`;
+CREATE TABLE `rasplants` (
+  `ID` int(11) NOT NULL,
   `Date` datetime NOT NULL,
   `Humidity` int(11) NOT NULL,
   `Luminosity` int(11) NOT NULL,
-  `Temperature` int(11) NOT NULL,
-  PRIMARY KEY (`ID`)
+  `Temperature` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -45,8 +47,8 @@ CREATE TABLE IF NOT EXISTS `rasperryplants` (
 --
 
 DROP TABLE IF EXISTS `registeredplants`;
-CREATE TABLE IF NOT EXISTS `registeredplants` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `registeredplants` (
+  `ID` int(11) NOT NULL,
   `NAME` varchar(65) COLLATE utf8_unicode_ci NOT NULL,
   `CATEGORY` varchar(65) COLLATE utf8_unicode_ci NOT NULL,
   `DESCRIPTION` text COLLATE utf8_unicode_ci,
@@ -54,9 +56,8 @@ CREATE TABLE IF NOT EXISTS `registeredplants` (
   `HUMIDITY` int(11) DEFAULT NULL,
   `TEMPERATURE` int(11) DEFAULT NULL,
   `BRIGHTNESS` int(11) DEFAULT NULL,
-  `PERIOD` varchar(65) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `PERIOD` varchar(65) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `registeredplants`
@@ -74,8 +75,8 @@ INSERT INTO `registeredplants` (`ID`, `NAME`, `CATEGORY`, `DESCRIPTION`, `PHOTOS
 --
 
 DROP TABLE IF EXISTS `spec plante`;
-CREATE TABLE IF NOT EXISTS `spec plante` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `spec plante` (
+  `ID` int(11) NOT NULL,
   `Nom` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `Catégorie` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `Description` text COLLATE utf8_unicode_ci NOT NULL,
@@ -83,11 +84,8 @@ CREATE TABLE IF NOT EXISTS `spec plante` (
   `Humidité sol optimale` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Température optimale` int(40) UNSIGNED NOT NULL,
   `Luminosité optimale` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `Période de floraison` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `Période de floraison` (`Période de floraison`),
-  KEY `Catégorie` (`Catégorie`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `Période de floraison` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `spec plante`
@@ -105,6 +103,52 @@ INSERT INTO `spec plante` (`ID`, `Nom`, `Catégorie`, `Description`, `Photos`, `
 (9, 'Delosperma Nubigenum', 'Fleur', 'Le Pourpier exige un sol chaud et une situation ensoleillé.\r\nCette espèce rampante est un magnifique couvre-sol mais peut aussi être utilisée en grimpante.\r\nSes rameaux courts, vêtus de feuilles charnues, vert clair, portent des fleurs allant du jaune vif au vermillon.\r\nLe pourpier exigera d\'être protègé des gelées..', NULL, 'Sec', 20, 'Soleil', 'Été'),
 (10, 'Lime de Tahiti', 'Fruitier', 'La lime de Tahiti est un agrume vigoureux au port buissonnant. Il possède un beau feuillage persistant vert foncé qui dégage un doux parfum lorsque l\'on frotte ses feuilles. La floraison printanière révèle de nombreuses petites fleurs blanches très parfumées entre mars et avril. Il donne ensuite des fruits ressemblant à des petits citrons. L\'écorce ainsi que la chair sont de couleur vert avec la pulpe très juteuse et acide. Les fruits se récoltent entre le mois d\'octobre et le mois de décembre et s\'utilisent en cuisine pour leur zeste et leur jus.', NULL, 'Normal', 15, 'Mi-ombre', 'Printemps'),
 (11, 'Laurier rose à fleurs', 'Fleur', 'Le laurier est un grand arbuste de soleil, très florifère qui aime les terres bien drainées. Ses feuilles sont allongées, fines, vert brillant. Il offre de très belles fleurs simples, roses. A la plantation, utiliser un terreau spécial plantes méditerranéennes ou un mélange composé d\'1/3 de terreau, 1/3 de terre de jardin et 1/3 de billes d\'argile pour le drainage. Utilisation en bac, en isolé, en haie ou en massif.', NULL, 'Normal', 25, 'Soleil', 'Été');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `rasplants`
+--
+ALTER TABLE `rasplants`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Index pour la table `registeredplants`
+--
+ALTER TABLE `registeredplants`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Index pour la table `spec plante`
+--
+ALTER TABLE `spec plante`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `Période de floraison` (`Période de floraison`),
+  ADD KEY `Catégorie` (`Catégorie`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `rasplants`
+--
+ALTER TABLE `rasplants`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `registeredplants`
+--
+ALTER TABLE `registeredplants`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT pour la table `spec plante`
+--
+ALTER TABLE `spec plante`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
