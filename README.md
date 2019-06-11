@@ -14,5 +14,7 @@ Nous avons développer ce projet à 3 et nous nous sommse réparties nos tâches
 + Yeshwin Bangarigadu : Application client
 + Maxime Larrieu : Liaisons BDD
 
+##
+
 
 
