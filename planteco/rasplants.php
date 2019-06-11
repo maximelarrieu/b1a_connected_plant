@@ -61,10 +61,10 @@
     try {
       $capted = $connexion->prepare('SELECT * FROM rasplants ORDER BY ID DESC LIMIT 1');
       $capted->execute();
-      while ($captured = $capted->fetchAll(PDO::FETCH_ASSOC)) {
-          $temp = $captured['Temperature'];
-          $lum = $captured['Luminosity'];
-          $hum = $captured['Humidity'];
+      $captured = $capted->fetch(PDO::FETCH_ASSOC));
+      $temp = $captured['Temperature'];
+      $lum = $captured['Luminosity'];
+      $hum = $captured['Humidity'];
       }
     }
     catch(Exception $e) {
@@ -72,30 +72,30 @@
     }
     ?>
     <div class="details">
-      <h3>Température :</h3><p><?php if(!empty($_POST['Temperature'])){echo $_POST['Temperature'];}?>°C</p>
+      <h3>Température :</h3><p><?php if(!empty($info['Temperature'])){echo $info['Temperature'];}?>°C</p>
       <h5>Recommandé : <?php if(!empty($optitemp)){echo $optitemp;} ?></h5>
     </div>
     <div class="details">
-      <h3>Luminosité :</h3><p><?php if(!empty($_POST['Luminosity'])){echo $_POST['Luminosity'];} ?>Lux</p>
+      <h3>Luminosité :</h3><p><?php if(!empty($info['Luminosity'])){echo $info['Luminosity'];} ?>Lux</p>
       <h5>Recommandé : <?php if(!empty($optilum)){echo $optilum;} ?></h5>
     </div>
     <div class="details">
-      <h3>Humidité :</h3><p><?php if(!empty($_POST['Humidity'])){echo $_POST['Humidity'];} ?>%</p>
+      <h3>Humidité :</h3><p><?php if(!empty($info['Humidity'])){echo $info['Humidity'];} ?>%</p>
       <h5>Recommandé : <?php if(!empty($optihum)){echo $optihum;} ?></h5>
     </div>
   </div>
   <div id="execute">
     <input type="button" value="Capturez vos données" name="capture" class="capture">
-    <?php
-    try {
+    <!--<?php
+    /*try {
       if(isset($_POST['capture'])) {
         $script = shell_exec('sudo python3 planteco.py');
       }
     } catch(Exception $e) {
       echo $e->getMessage();
     }
-    var_dump($script);
-    ?>
+    var_dump($script);*/
+    ?>-->
   </div>
   <div id='tab'>
     <h3>Historique</h3>
@@ -110,13 +110,14 @@
       try {
         $capt = $connexion->prepare('SELECT * FROM rasplants ORDER BY Date DESC;');
         $capt->execute();
-        $captplant = $capt->fetch(PDO::FETCH_ASSOC);
+
+        $captplant = $capt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($captplant as $info) {
           echo '<tr>';
           echo '<td>'. $info['Date'] .'</td>';
-          echo '<td>'. $info['Humidity'] .'</td>';
-          echo '<td>'. $info['Luminosity'] .'</td>';
           echo '<td>'. $info['Temperature'] .'</td>';
+          echo '<td>'. $info['Luminosity'] .'</td>';
+          echo '<td>'. $info['Humidity'] .'</td>';
           echo '</tr>';
         }
       }
