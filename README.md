@@ -5,16 +5,18 @@
 
 L'entreprise Connected Flowers, nous souhaitions développer un objet connecté permettant
 à tout individu sans connaissance en botanique de faire pousser des plantes chez lui. Nous fournissons
-une base de donnée contenant une trentaine de plantes de la région que l'utilisateur pourra étendre comme il le souhaite.
+une base de données contenant une trentaine de plantes de la région que l'utilisateur pourra étendre comme il le souhaite.
 Grâce à notre objet connecté fourni et par le biais de notre application l'utilisateur pourra contrôler
 le bon état de ses plantes et pourra être alerté si les conditions de ses plantes deviennent critiques.
 Il est aussi possible de planifier de planter une plante, le logiciel vous assistera.
-Nous avons développer ce projet à 3 et nous nous sommse réparties nos tâches :
+Nous avons développé ce projet à 3 et nous nous sommes réparties nos tâches :
 + Thomas Dumont : Programmation Rasperry Pi
-+ Yeshwin Bangarigadu : Application client
++ Yeshwin Bangarigadu : Interface client
 + Maxime Larrieu : Liaisons BDD
 
-##
 
+## Indications relatives au déploiement
 
+Pour le bon fonctionnement de l'objet connecté, il sera nécessaire de mettre le capteur d'humidité dans la terre de la plante concernée ainsi que de mettre le capteur de température à proximité et de placer le capteur de luminosité à côté de la plante en faisant en sorte qu'il soit autant éclairé que la plante, c'est-à-dire hors de l'ombre d'un objet proche.
 
+La carte Raspberry Pi devra alors être mise sous tension et il suffira d'appuyer sur le bouton "Capturez vos données" sur le site WEB de la plante connectée pour que les données commencent à être récupérées et à s'afficher sur la page d'accueil du site.
