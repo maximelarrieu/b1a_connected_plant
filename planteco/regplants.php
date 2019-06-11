@@ -351,9 +351,9 @@
   </div>
   <div class="plant">
     <?php
-      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=12;');
-      $p2->execute();
-      while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
+      $p12 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=12;');
+      $p12->execute();
+      while ($plant = $p12->fetch(PDO::FETCH_ASSOC)) {
         $name = $plant['NAME'];
         $category = $plant['CATEGORY'];
         $desc = $plant['DESCRIPTION'];
