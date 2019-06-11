@@ -81,9 +81,9 @@
   </div>
   <div class="plant">
     <?php
-  		$p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=3;');
-  		$p2->execute();
-  		while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
+  		$p3 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=3;');
+  		$p3->execute();
+  		while ($plant = $p3->fetch(PDO::FETCH_ASSOC)) {
   			$name = $plant['NAME'];
   			$category = $plant['CATEGORY'];
   			$desc = $plant['DESCRIPTION'];
@@ -111,9 +111,9 @@
   </div>
   <div class="plant">
     <?php
-  		$p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=4;');
-  		$p2->execute();
-  		while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
+  		$p4 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=4;');
+  		$p4->execute();
+  		while ($plant = $p4->fetch(PDO::FETCH_ASSOC)) {
   			$name = $plant['NAME'];
   			$category = $plant['CATEGORY'];
   			$desc = $plant['DESCRIPTION'];
@@ -141,9 +141,9 @@
   </div>
   <div class="plant">
     <?php
-  		$p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=5;');
-  		$p2->execute();
-  		while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
+  		$p5 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=5;');
+  		$p5->execute();
+  		while ($plant = $p5->fetch(PDO::FETCH_ASSOC)) {
   			$name = $plant['NAME'];
   			$category = $plant['CATEGORY'];
   			$desc = $plant['DESCRIPTION'];
@@ -171,9 +171,9 @@
   </div>
   <div class="plant">
     <?php
-  		$p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=6;');
-  		$p2->execute();
-  		while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
+  		$p6 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=6;');
+  		$p6->execute();
+  		while ($plant = $p6->fetch(PDO::FETCH_ASSOC)) {
   			$name = $plant['NAME'];
   			$category = $plant['CATEGORY'];
   			$desc = $plant['DESCRIPTION'];
@@ -201,7 +201,157 @@
   </div>
   <div class="plant">
     <?php
-      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=7;');
+      $p7 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=7;');
+      $p7->execute();
+      while ($plant = $p7->fetch(PDO::FETCH_ASSOC)) {
+        $name = $plant['NAME'];
+        $category = $plant['CATEGORY'];
+        $desc = $plant['DESCRIPTION'];
+        $period = $plant['PERIOD'];
+        $humidity = $plant['HUMIDITY'];
+        $temperature = $plant['TEMPERATURE'];
+        $brightness = $plant['BRIGHTNESS'];
+      }
+    ?>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
+    <div class="tools">
+      <p>Temperature optimale:</p><?= $temperature ?>
+    </div>
+    <div class="tools">
+      <p>Humidité optimale:</p><?= $humidity ?>
+    </div>
+    <div class="tools">
+      <p>Luminosité optimale:</p><?= $brightness ?>
+    </div>
+  </div>
+  <div class="plant">
+    <?php
+      $p8 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=8;');
+      $p8->execute();
+      while ($plant = $p8->fetch(PDO::FETCH_ASSOC)) {
+        $name = $plant['NAME'];
+        $category = $plant['CATEGORY'];
+        $desc = $plant['DESCRIPTION'];
+        $period = $plant['PERIOD'];
+        $humidity = $plant['HUMIDITY'];
+        $temperature = $plant['TEMPERATURE'];
+        $brightness = $plant['BRIGHTNESS'];
+      }
+    ?>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
+    <div class="tools">
+      <p>Temperature optimale:</p><?= $temperature ?>
+    </div>
+    <div class="tools">
+      <p>Humidité optimale:</p><?= $humidity ?>
+    </div>
+    <div class="tools">
+      <p>Luminosité optimale:</p><?= $brightness ?>
+    </div>
+  </div>
+  <div class="plant">
+    <?php
+      $p9 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=9;');
+      $p9->execute();
+      while ($plant = $p9->fetch(PDO::FETCH_ASSOC)) {
+        $name = $plant['NAME'];
+        $category = $plant['CATEGORY'];
+        $desc = $plant['DESCRIPTION'];
+        $period = $plant['PERIOD'];
+        $humidity = $plant['HUMIDITY'];
+        $temperature = $plant['TEMPERATURE'];
+        $brightness = $plant['BRIGHTNESS'];
+      }
+    ?>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
+    <div class="tools">
+      <p>Temperature optimale:</p><?= $temperature ?>
+    </div>
+    <div class="tools">
+      <p>Humidité optimale:</p><?= $humidity ?>
+    </div>
+    <div class="tools">
+      <p>Luminosité optimale:</p><?= $brightness ?>
+    </div>
+  </div>
+  <div class="plant">
+    <?php
+      $p10 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=10;');
+      $p10->execute();
+      while ($plant = $p10->fetch(PDO::FETCH_ASSOC)) {
+        $name = $plant['NAME'];
+        $category = $plant['CATEGORY'];
+        $desc = $plant['DESCRIPTION'];
+        $period = $plant['PERIOD'];
+        $humidity = $plant['HUMIDITY'];
+        $temperature = $plant['TEMPERATURE'];
+        $brightness = $plant['BRIGHTNESS'];
+      }
+    ?>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
+    <div class="tools">
+      <p>Temperature optimale:</p><?= $temperature ?>
+    </div>
+    <div class="tools">
+      <p>Humidité optimale:</p><?= $humidity ?>
+    </div>
+    <div class="tools">
+      <p>Luminosité optimale:</p><?= $brightness ?>
+    </div>
+  </div>
+  <div class="plant">
+    <?php
+      $p11 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=11;');
+      $p11->execute();
+      while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
+        $name = $plant['NAME'];
+        $category = $plant['CATEGORY'];
+        $desc = $plant['DESCRIPTION'];
+        $period = $plant['PERIOD'];
+        $humidity = $plant['HUMIDITY'];
+        $temperature = $plant['TEMPERATURE'];
+        $brightness = $plant['BRIGHTNESS'];
+      }
+    ?>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
+    <div class="tools">
+      <p>Temperature optimale:</p><?= $temperature ?>
+    </div>
+    <div class="tools">
+      <p>Humidité optimale:</p><?= $humidity ?>
+    </div>
+    <div class="tools">
+      <p>Luminosité optimale:</p><?= $brightness ?>
+    </div>
+  </div>
+  <div class="plant">
+    <?php
+      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=12;');
       $p2->execute();
       while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
         $name = $plant['NAME'];
@@ -231,7 +381,7 @@
   </div>
   <div class="plant">
     <?php
-      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=8;');
+      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=13;');
       $p2->execute();
       while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
         $name = $plant['NAME'];
@@ -261,7 +411,7 @@
   </div>
   <div class="plant">
     <?php
-      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=8;');
+      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=14;');
       $p2->execute();
       while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
         $name = $plant['NAME'];
@@ -291,7 +441,7 @@
   </div>
   <div class="plant">
     <?php
-      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=9;');
+      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=15;');
       $p2->execute();
       while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
         $name = $plant['NAME'];
@@ -321,7 +471,7 @@
   </div>
   <div class="plant">
     <?php
-      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=10;');
+      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=16;');
       $p2->execute();
       while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
         $name = $plant['NAME'];
@@ -351,7 +501,97 @@
   </div>
   <div class="plant">
     <?php
-      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=11;');
+      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=17;');
+      $p2->execute();
+      while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
+        $name = $plant['NAME'];
+        $category = $plant['CATEGORY'];
+        $desc = $plant['DESCRIPTION'];
+        $period = $plant['PERIOD'];
+        $humidity = $plant['HUMIDITY'];
+        $temperature = $plant['TEMPERATURE'];
+        $brightness = $plant['BRIGHTNESS'];
+      }
+    ?>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
+    <div class="tools">
+      <p>Temperature optimale:</p><?= $temperature ?>
+    </div>
+    <div class="tools">
+      <p>Humidité optimale:</p><?= $humidity ?>
+    </div>
+    <div class="tools">
+      <p>Luminosité optimale:</p><?= $brightness ?>
+    </div>
+  </div>
+  <div class="plant">
+    <?php
+      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=18;');
+      $p2->execute();
+      while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
+        $name = $plant['NAME'];
+        $category = $plant['CATEGORY'];
+        $desc = $plant['DESCRIPTION'];
+        $period = $plant['PERIOD'];
+        $humidity = $plant['HUMIDITY'];
+        $temperature = $plant['TEMPERATURE'];
+        $brightness = $plant['BRIGHTNESS'];
+      }
+    ?>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
+    <div class="tools">
+      <p>Temperature optimale:</p><?= $temperature ?>
+    </div>
+    <div class="tools">
+      <p>Humidité optimale:</p><?= $humidity ?>
+    </div>
+    <div class="tools">
+      <p>Luminosité optimale:</p><?= $brightness ?>
+    </div>
+  </div>
+  <div class="plant">
+    <?php
+      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=19;');
+      $p2->execute();
+      while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
+        $name = $plant['NAME'];
+        $category = $plant['CATEGORY'];
+        $desc = $plant['DESCRIPTION'];
+        $period = $plant['PERIOD'];
+        $humidity = $plant['HUMIDITY'];
+        $temperature = $plant['TEMPERATURE'];
+        $brightness = $plant['BRIGHTNESS'];
+      }
+    ?>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
+    <div class="tools">
+      <p>Temperature optimale:</p><?= $temperature ?>
+    </div>
+    <div class="tools">
+      <p>Humidité optimale:</p><?= $humidity ?>
+    </div>
+    <div class="tools">
+      <p>Luminosité optimale:</p><?= $brightness ?>
+    </div>
+  </div>
+  <div class="plant">
+    <?php
+      $p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=20;');
       $p2->execute();
       while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
         $name = $plant['NAME'];
