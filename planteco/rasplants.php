@@ -32,6 +32,7 @@
     </div>
   </div>
   <div id='tab'>
+    <h3>Historique</h3>
     <table>
       <tr>
         <th>Date et heure</th>
@@ -39,8 +40,8 @@
         <th>Humidité</th>
         <th>Luminosité</th>
       </tr>
-      <!--<?php
-        /*$capt = $connexion->prepare('SELECT NAME FROM raspberry;');
+      <?php
+        $capt = $connexion->prepare('SELECT * FROM rasplants;');
         $capt->execute();
         $captplant = $capt->fetchAll();
         foreach ($captplant as $info) {
@@ -50,20 +51,8 @@
           echo '<td>'. $info['Luminosity'] .'</td>';
           echo '<td>'. $info['Temperature'] .'</td>';
           echo '</tr>';
-        }*/
-      ?>-->
-      <tr>
-        <td>Valeur1</td>
-        <td>Valeur2</td>
-        <td>Valeur3</td>
-        <td>Valeur4</td>
-      </tr>
-      <tr>
-        <td>Valeur1</td>
-        <td>Valeur2</td>
-        <td>Valeur3</td>
-        <td>Valeur4</td>
-      </tr>
+        }
+      ?>
     </table>
   </div>
 </body>

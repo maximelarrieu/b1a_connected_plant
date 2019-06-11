@@ -50,14 +50,21 @@
   <div class="parameters">
     <h2>Ajouter une plante</h2>
     <?php
-      if (isset($_POST['add']) && isset($_POST['plantname']) && isset($_POST['plantype']) && isset($_POST['plantperiod'])) {
+      if (isset($_POST['add'])) {
         $ajout = $connexion->prepare("
         INSERT INTO
         registeredplants
-        VALUES(NULL,'". $_POST['plantname'] ."','". $_POST['plantype'] ."',NULL,NULL,NULL,NULL,NULL,'". $_POST['plantperiod'] ."')"
+        VALUES(NULL,'". $_POST['plantname'] ."',
+        '". $_POST['plantype'] ."',
+        '". $_POST['plantdesc']."',
+        NULL,
+        '". $_POST['planthum']."',
+        '". $_POST['plantemp']."',
+        '". $_POST['plantlum']."',
+        '". $_POST['plantperiod'] ."')"
         );
         try {
-          $ajout->execute(array($_POST['plantname'], $_POST['plantype'], $_POST['plantperiod']));
+          $ajout->execute(array($_POST['plantname'], $_POST['plantype'], $_POST['plantdesc'], $_POST['planthum'], $_POST['plantemp'], $_POST['plantlum'], $_POST['plantperiod']));
         }
         catch(Exception $e){
           echo 'Message' . $e->getMessage();
@@ -66,8 +73,12 @@
     ?>
     <form method="POST">
       <input type="text" name="plantname" placeholder="Nom de votre plante..." required >
-      <input type="text" name="plantype" placeholder="Type de votre plante..." required >
-      <input type="text" name="plantperiod" placeholder="Période de floraison..." required >
+      <input type="text" name="plantype" placeholder="Type de votre plante..."  >
+      <input type="text" name="plantperiod" placeholder="Période de floraison..."  >
+      <textarea name="plantdesc" placeholder="Description.." rows="10" cols="35" ></textarea>
+      <input type="text" name="plantemp" placeholder="Température optimale souhaitée.." >
+      <input type="text" name="planthum" placeholder="Humidité optimale souhaitée.." >
+      <input type="text" name="plantlum" placeholder="Luminosité optimale souhaitée.." >
       <input type="submit" value="AJOUTER" name="add" >
     </form>
   </div>
@@ -85,10 +96,33 @@
         ?>
       </select>
       <input type="text" name="newname" id="newname" placeholder="Modifier nom de plante...">
+      <input type="text" name="newtype" placeholder="Modifier catégorie de votre plante..."  >
+      <input type="text" name="newperiod" placeholder="Période de floraison..."  >
+      <textarea name="newdesc" placeholder="Description.." rows="10" cols="35" ></textarea>
+      <input type="text" name="newtemp" placeholder="Température optimale souhaitée.." >
+      <input type="text" name="newhum" placeholder="Humidité optimale souhaitée.." >
+      <input type="text" name="newlum" placeholder="Luminosité optimale souhaitée.." >
       <?php
-        if(isset($_POST['newname']) && isset($_POST['plantmodif'])) {
-          $modif = $connexion->prepare('UPDATE registeredplants SET NAME = "'.$_POST['newname'].'" WHERE name="'.$_POST['plantmodif'].'"');
-          $modif->execute();
+        if (isset($_POST['new']) && isset($_POST['newname'])) {
+          $modif = $connexion->prepare("
+          UPDATE registeredplants
+          SET
+          NULL,
+          '". $_POST['newname'] ."',
+          '". $_POST['newtype'] ."',
+          '". $_POST['newdesc']."',
+          NULL,
+          '". $_POST['newhum']."',
+          '". $_POST['newtemp']."',
+          '". $_POST['newlum']."',
+          '". $_POST['newperiod'] ."')"
+          );
+          try {
+            $modif->execute(array($_POST['newname'], $_POST['newtype'], $_POST['newperiod'], $_POST['newdesc']));
+          }
+          catch(Exception $e){
+            echo 'Message' . $e->getMessage();
+          }
         }
       ?>
       <input type="submit" value="MODIFIER" name="new">

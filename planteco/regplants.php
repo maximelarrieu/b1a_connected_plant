@@ -33,10 +33,12 @@
   			$brightness = $plant['BRIGHTNESS'];
   		}
   	?>
-    <img src="ressources/prunier.jpg" alt="prunier"/>
-    <h3><?= $name ?></h3>
-    <h4><?= $category ?></h4>
-    <p><?= $desc ?></p>
+    <img src="ressources/prunier.jpg" alt="prunier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
     <div class="tools">
       <p>Temperature optimale:</p><?= $temperature ?>
     </div>
@@ -62,9 +64,11 @@
   		}
   	?>
     <img src="ressources/laurier.jpg" alt="laurier" />
-    <h3><?= $name ?></h3>
-    <h4><?= $category ?></h4>
-    <p><?= $desc ?></p>
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
     <div class="tools">
       <p>Temperature optimale:</p><?= $temperature ?>
     </div>
@@ -89,10 +93,12 @@
   			$brightness = $plant['BRIGHTNESS'];
   		}
   	?>
-    <img src="prunier.jpg"></img>
-    <h3><?= $name ?></h3>
-    <h4><?= $category ?></h4>
-    <p><?= $desc ?></p>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
     <div class="tools">
       <p>Temperature optimale:</p><?= $temperature ?>
     </div>
@@ -117,10 +123,12 @@
   			$brightness = $plant['BRIGHTNESS'];
   		}
   	?>
-    <img src="prunier.jpg"></img>
-    <h3><?= $name ?></h3>
-    <h4><?= $category ?></h4>
-    <p><?= $desc ?></p>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
     <div class="tools">
       <p>Temperature optimale:</p><?= $temperature ?>
     </div>
@@ -145,10 +153,12 @@
   			$brightness = $plant['BRIGHTNESS'];
   		}
   	?>
-    <img src="prunier.jpg"></img>
-    <h3><?= $name ?></h3>
-    <h4><?= $category ?></h4>
-    <p><?= $desc ?></p>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
     <div class="tools">
       <p>Temperature optimale:</p><?= $temperature ?>
     </div>
@@ -173,10 +183,12 @@
   			$brightness = $plant['BRIGHTNESS'];
   		}
   	?>
-    <img src="prunier.jpg" />
-    <h3><?= $name ?></h3>
-    <h4><?= $category ?></h4>
-    <p><?= $desc ?></p>
+    <img src="ressources/laurier.jpg" alt="laurier" />
+    <div class="title">
+      <h3><?= $name ?></h3>
+      <h4><?= $category ?></h4>
+    </div>
+    <p class="desc"><?= $desc ?></p>
     <div class="tools">
       <p>Temperature optimale:</p><?= $temperature ?>
     </div>
