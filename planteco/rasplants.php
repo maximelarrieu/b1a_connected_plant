@@ -47,41 +47,37 @@
           $reco = $connexion->prepare('SELECT * FROM registeredplants WHERE NAME= "'.$_POST['plantselect'].'"');
           $reco->execute();
           while ($recomended = $reco->fetch(PDO::FETCH_ASSOC)) {
-          $optitemp = $recomended['TEMPERATURE'];
-          $optilum = $recomended['BRIGHTNESS'];
-          $optihum = $recomended['HUMIDITY'];
+          	$optitemp = $recomended['TEMPERATURE'];
+          	$optilum = $recomended['BRIGHTNESS'];
+          	$optihum = $recomended['HUMIDITY'];
           }
         }
-      }catch(Exception $e) {
+      } catch(Exception $e) {
         echo 'Message :' . $e->getMessage();
+      }
+      try {
+      	$capted = $connexion->prepare('SELECT * FROM rasplants ORDER BY ID DESC LIMIT 1');
+        $capted->execute();
+      	$captured = $capted->fetch(PDO::FETCH_ASSOC);
+      	$temp = $captured['Temperature'];
+      	$lum = $captured['Luminosity'];
+      	$hum = $captured['Humidity'];
+      } catch(Exception $e) {
+      	echo 'Message:' . $e->getMessage();
       }
       ?>
     </form>
-    <?php
-    try {
-      $capted = $connexion->prepare('SELECT * FROM rasplants ORDER BY ID DESC LIMIT 1');
-      $capted->execute();
-      $captured = $capted->fetch(PDO::FETCH_ASSOC));
-      $temp = $captured['Temperature'];
-      $lum = $captured['Luminosity'];
-      $hum = $captured['Humidity'];
-      }
-    }
-    catch(Exception $e) {
-      echo 'Message:' . $e->getMessage();
-    }
-    ?>
     <div class="details">
-      <h3>Température :</h3><p><?php if(!empty($info['Temperature'])){echo $info['Temperature'];}?>°C</p>
-      <h5>Recommandé : <?php if(!empty($optitemp)){echo $optitemp;} ?></h5>
+      <h3>Température :</h3><p><?php if(!empty($temp)){echo $temp;}?>°C</p>
+      <h5>Recommandé : <?php if(!empty($optitemp)){echo $optitemp;} ?>°C</h5>
     </div>
     <div class="details">
-      <h3>Luminosité :</h3><p><?php if(!empty($info['Luminosity'])){echo $info['Luminosity'];} ?>Lux</p>
-      <h5>Recommandé : <?php if(!empty($optilum)){echo $optilum;} ?></h5>
+      <h3>Luminosité :</h3><p><?php if(!empty($lum)){echo $lum;} ?>Lux</p>
+      <h5>Recommandé : <?php if(!empty($optilum)){echo $optilum;} ?>Lux</h5>
     </div>
     <div class="details">
-      <h3>Humidité :</h3><p><?php if(!empty($info['Humidity'])){echo $info['Humidity'];} ?>%</p>
-      <h5>Recommandé : <?php if(!empty($optihum)){echo $optihum;} ?></h5>
+      <h3>Humidité :</h3><p><?php if(!empty($hum)){echo $hum;} ?>%</p>
+      <h5>Recommandé : <?php if(!empty($optihum)){echo $optihum;} ?>%</h5>
     </div>
   </div>
   <div id="execute">
