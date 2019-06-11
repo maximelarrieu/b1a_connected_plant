@@ -23,7 +23,7 @@
     <?php
   		$last = $connexion->prepare('SELECT * FROM registeredplants ORDER BY ID;');
   		$last->execute();
-  		while ($plant = $last->fetch()) {
+  		while ($plant = $last->fetch(PDO::FETCH_ASSOC)) {
   			$name = $plant['NAME'];
   			$category = $plant['CATEGORY'];
   			$desc = $plant['DESCRIPTION'];
@@ -89,7 +89,8 @@
         <?php
           $menu = $connexion->prepare('SELECT NAME FROM registeredplants ORDER BY NAME;');
           $menu->execute();
-          $selectedplant = $menu->fetchAll();
+          $selectedplant = $menu->fetchAll(PDO::FETCH_ASSOC);
+          var_dump($selectedplant);
           foreach ($selectedplant as $choice) {
             echo '<option>'. $choice['NAME'] .'</option>';
           }
@@ -104,7 +105,7 @@
       <input type="text" name="newlum" placeholder="Luminosité optimale souhaitée.." >
       <?php
         if (isset($_POST['new']) && isset($_POST['newname'])) {
-          $modif = $connexion->prepare("
+          /*$modif = $connexion->prepare("
           UPDATE registeredplants
           SET
           NULL,
@@ -118,11 +119,24 @@
           '". $_POST['newperiod'] ."')"
           );
           try {
-            $modif->execute(array($_POST['newname'], $_POST['newtype'], $_POST['newperiod'], $_POST['newdesc']));
+            $modif->execute();
           }
           catch(Exception $e){
             echo 'Message' . $e->getMessage();
-          }
+          }*/
+          $modif = $connexion->prepare("
+          UPDATE registeredplants
+          SET
+          NULL,
+          '". $_POST['newname'] ."',
+          NULL,
+          NULL,
+          NULL,
+          NULL,
+          NULL,
+          NULL,
+          NULL)"
+          );
         }
       ?>
       <input type="submit" value="MODIFIER" name="new">
@@ -133,7 +147,7 @@
         <?php
           $list = $connexion->prepare('SELECT NAME FROM registeredplants ORDER BY NAME;');
           $list->execute();
-          $listedplant = $list->fetchAll();
+          $listedplant = $list->fetchAll(PDO::FETCH_ASSOC);
           foreach ($listedplant as $choicep) {
             echo '<option>'. $choicep['NAME'] .'</option>';
           }

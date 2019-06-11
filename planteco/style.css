@@ -60,9 +60,10 @@ form {
   margin-left: auto;
   margin-right: auto;
 }
-input {
+.capture input {
   width: 55%;
 }
+
 /***REGPLANTS***/
 .plant {
   float: left;
@@ -109,6 +110,9 @@ input {
 #theplant h2 {
   margin-bottom: 7%;
 }
+.selplant input {
+  width: 17%;
+}
 .details {
   display: inline-block;
   width : 32%;
@@ -118,6 +122,10 @@ input {
 }
 .details p {
   font-size: 40px;
+}
+#execute {
+  margin-left: 680px;
+  width: 270px;
 }
 #tab {
   text-align: center;

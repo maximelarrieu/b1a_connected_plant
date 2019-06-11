@@ -23,7 +23,7 @@
     <?php
   		$p1 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=1;');
   		$p1->execute();
-  		while ($plant = $p1->fetch()) {
+  		while ($plant = $p1->fetch(PDO::FETCH_ASSOC)) {
   			$name = $plant['NAME'];
   			$category = $plant['CATEGORY'];
   			$desc = $plant['DESCRIPTION'];
@@ -53,7 +53,7 @@
     <?php
   		$p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=2;');
   		$p2->execute();
-  		while ($plant = $p2->fetch()) {
+  		while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
   			$name = $plant['NAME'];
   			$category = $plant['CATEGORY'];
   			$desc = $plant['DESCRIPTION'];
@@ -83,7 +83,7 @@
     <?php
   		$p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=2;');
   		$p2->execute();
-  		while ($plant = $p2->fetch()) {
+  		while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
   			$name = $plant['NAME'];
   			$category = $plant['CATEGORY'];
   			$desc = $plant['DESCRIPTION'];
@@ -113,7 +113,7 @@
     <?php
   		$p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=2;');
   		$p2->execute();
-  		while ($plant = $p2->fetch()) {
+  		while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
   			$name = $plant['NAME'];
   			$category = $plant['CATEGORY'];
   			$desc = $plant['DESCRIPTION'];
@@ -143,7 +143,7 @@
     <?php
   		$p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=2;');
   		$p2->execute();
-  		while ($plant = $p2->fetch()) {
+  		while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
   			$name = $plant['NAME'];
   			$category = $plant['CATEGORY'];
   			$desc = $plant['DESCRIPTION'];
@@ -173,7 +173,7 @@
     <?php
   		$p2 = $connexion->prepare('SELECT * FROM registeredplants WHERE id=2;');
   		$p2->execute();
-  		while ($plant = $p2->fetch()) {
+  		while ($plant = $p2->fetch(PDO::FETCH_ASSOC)) {
   			$name = $plant['NAME'];
   			$category = $plant['CATEGORY'];
   			$desc = $plant['DESCRIPTION'];
