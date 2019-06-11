@@ -19,4 +19,4 @@ Nous avons développé ce projet à 3 et nous nous sommes réparties nos tâches
 
 Pour le bon fonctionnement de l'objet connecté, il sera nécessaire de mettre le capteur d'humidité dans la terre de la plante concernée ainsi que de mettre le capteur de température à proximité et de placer le capteur de luminosité à côté de la plante en faisant en sorte qu'il soit autant éclairé que la plante, c'est-à-dire hors de l'ombre d'un objet proche.
 
-La carte Raspberry Pi devra alors être mise sous tension et il suffira d'appuyer sur le bouton "Capturez vos données" sur le site WEB de la plante connectée pour que les données commencent à être récupérées et à s'afficher sur la page d'accueil du site.
+La carte Raspberry Pi devra alors être mise sous tension et il suffira d'appuyer sur le bouton "Capturez vos données" sur le site WEB de la plante connectée pour que les données commencent à être récupérées et à s'afficher sur la page "Votre plante".
