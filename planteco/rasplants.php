@@ -1,4 +1,4 @@
-<?php
+<?php echo $photos?><?php
   include_once 'connexion.php';
 ?>
 <!doctype html>
@@ -81,17 +81,21 @@
     </div>
   </div>
   <div id="execute">
-    <input type="button" value="Capturez vos données" name="capture" class="capture">
-    <!--<?php
-    /*try {
-      if(isset($_POST['capture'])) {
-        $script = shell_exec('sudo python3 planteco.py');
-      }
-    } catch(Exception $e) {
-      echo $e->getMessage();
-    }
-    var_dump($script);*/
-    ?>-->
+  <?php
+try {
+     if(isset($_POST['captur'])) {
+                exec("sudo python3 planteco.py &", $output);
+                echo $output;
+        }
+	else {
+	}
+} catch (Exception $e) {
+	$e->getMessage();
+}
+  ?>
+   <form method="POST" action="rasplants.php">
+    <input type="button" value="Capturez vos données" name="captur" class="capture">
+   </form>
   </div>
   <div id='tab'>
     <h3>Historique</h3>
@@ -104,7 +108,7 @@
       </tr>
       <?php
       try {
-        $capt = $connexion->prepare('SELECT * FROM rasplants ORDER BY Date DESC;');
+        $capt = $connexion->prepare('SELECT * FROM rasplants ORDER BY Date DESC LIMIT 10;');
         $capt->execute();
 
         $captplant = $capt->fetchAll(PDO::FETCH_ASSOC);

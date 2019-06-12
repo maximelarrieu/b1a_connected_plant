@@ -33,6 +33,6 @@ while 1:
 	
 	cursor.execute("INSERT INTO planteco.rasplants (`DATE`,`Humidity`,`Luminosity`,`Temperature`)" "VALUES (NOW(), %s, %s, %s)", (humidite, luminosite, temperature))
 	mariadb_connection.commit()
-	time.sleep(5.0) 
+	time.sleep(3.0) 
 
 mariadb_connection.close()

@@ -31,9 +31,11 @@
   			$humidity = $plant['HUMIDITY'];
   			$temperature = $plant['TEMPERATURE'];
   			$brightness = $plant['BRIGHTNESS'];
+			$photos = $plant['PHOTOS'];
   		}
   	?>
     <h2>Dernier ajout</h2>
+<img src="<?php echo $photos?>" alt="lastadd" >
     <h3><?= $name ?></h3>
     <h4><?= $category ?></h4>
     <h4><?= $period ?></h4>
@@ -57,14 +59,14 @@
         VALUES(NULL,'". $_POST['plantname'] ."',
         '". $_POST['plantype'] ."',
         '". $_POST['plantdesc']."',
-        NULL,
+        '". $_POST['plantimg']. "',
         '". $_POST['planthum']."',
         '". $_POST['plantemp']."',
         '". $_POST['plantlum']."',
         '". $_POST['plantperiod'] ."')"
         );
         try {
-          $ajout->execute(array($_POST['plantname'], $_POST['plantype'], $_POST['plantdesc'], $_POST['planthum'], $_POST['plantemp'], $_POST['plantlum'], $_POST['plantperiod']));
+          $ajout->execute();
         }
         catch(Exception $e){
           echo 'Message' . $e->getMessage();
@@ -73,12 +75,13 @@
     ?>
     <form method="POST">
       <input type="text" name="plantname" placeholder="Nom de votre plante..." required >
-      <input type="text" name="plantype" placeholder="Type de votre plante..."  >
-      <input type="text" name="plantperiod" placeholder="Période de floraison..."  >
-      <textarea name="plantdesc" placeholder="Description.." rows="10" cols="35" ></textarea>
-      <input type="text" name="plantemp" placeholder="Température optimale souhaitée.." >
-      <input type="text" name="planthum" placeholder="Humidité optimale souhaitée.." >
-      <input type="text" name="plantlum" placeholder="Luminosité optimale souhaitée.." >
+      <input type="text" name="plantype" placeholder="Catégorie de votre plante..." required >
+      <input type="text" name="plantperiod" placeholder="Période de floraison..."  required>
+      <input type="url" name="plantimg" placeholder="Lien de l'image..." required > 
+      <textarea name="plantdesc" placeholder="Description.." rows="10" cols="35" required ></textarea>
+      <input type="text" name="plantemp" placeholder="Température optimale souhaitée.." required >
+      <input type="text" name="planthum" placeholder="Humidité optimale souhaitée.." required >
+      <input type="text" name="plantlum" placeholder="Luminosité optimale souhaitée.." required >
       <input type="submit" value="AJOUTER" name="add" >
     </form>
   </div>
@@ -96,47 +99,33 @@
           }
         ?>
       </select>
-      <input type="text" name="newname" id="newname" placeholder="Modifier nom de plante...">
-      <input type="text" name="newtype" placeholder="Modifier catégorie de votre plante..."  >
-      <input type="text" name="newperiod" placeholder="Période de floraison..."  >
-      <textarea name="newdesc" placeholder="Description.." rows="10" cols="35" ></textarea>
-      <input type="text" name="newtemp" placeholder="Température optimale souhaitée.." >
-      <input type="text" name="newhum" placeholder="Humidité optimale souhaitée.." >
-      <input type="text" name="newlum" placeholder="Luminosité optimale souhaitée.." >
+      <input type="text" name="newname" placeholder="Modifier nom de plante..." required >
+      <input type="text" name="newtype" placeholder="Modifier catégorie de votre plante..." required >
+      <input type="text" name="newperiod" placeholder="Période de floraison..." required >
+      <textarea name="newdesc" placeholder="Description.." rows="10" cols="25" required ></textarea>
+      <input type="text" name="newtemp" placeholder="Température optimale souhaitée.." required >
+      <input type="text" name="newhum" placeholder="Humidité optimale souhaitée.." required >
+      <input type="text" name="newlum" placeholder="Luminosité optimale souhaitée.." required>
       <?php
-        if (isset($_POST['new']) && isset($_POST['newname'])) {
-          /*$modif = $connexion->prepare("
+        if (isset($_POST['plantmodif']) && isset($_POST['new'])) {
+          $modif = $connexion->prepare("
           UPDATE registeredplants
           SET
-          NULL,
-          '". $_POST['newname'] ."',
+          NULL,'". $_POST['newname'] ."',
           '". $_POST['newtype'] ."',
           '". $_POST['newdesc']."',
           NULL,
           '". $_POST['newhum']."',
           '". $_POST['newtemp']."',
           '". $_POST['newlum']."',
-          '". $_POST['newperiod'] ."')"
+          '". $_POST['newperiod'] ."';"
           );
           try {
             $modif->execute();
           }
           catch(Exception $e){
             echo 'Message' . $e->getMessage();
-          }*/
-          $modif = $connexion->prepare("
-          UPDATE registeredplants
-          SET
-          NULL,
-          '". $_POST['newname'] ."',
-          NULL,
-          NULL,
-          NULL,
-          NULL,
-          NULL,
-          NULL,
-          NULL)"
-          );
+          }
         }
       ?>
       <input type="submit" value="MODIFIER" name="new">
