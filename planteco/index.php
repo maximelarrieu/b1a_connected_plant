@@ -102,6 +102,7 @@
       <input type="text" name="newname" placeholder="Modifier nom de plante..." required >
       <input type="text" name="newtype" placeholder="Modifier catégorie de votre plante..." required >
       <input type="text" name="newperiod" placeholder="Période de floraison..." required >
+      <input type="url" name="newimg" placeholder="Lien de votre image" required >
       <textarea name="newdesc" placeholder="Description.." rows="10" cols="25" required ></textarea>
       <input type="text" name="newtemp" placeholder="Température optimale souhaitée.." required >
       <input type="text" name="newhum" placeholder="Humidité optimale souhaitée.." required >
@@ -111,20 +112,22 @@
           $modif = $connexion->prepare("
           UPDATE registeredplants
           SET
-          NULL,'". $_POST['newname'] ."',
-          '". $_POST['newtype'] ."',
-          '". $_POST['newdesc']."',
-          NULL,
-          '". $_POST['newhum']."',
-          '". $_POST['newtemp']."',
-          '". $_POST['newlum']."',
-          '". $_POST['newperiod'] ."';"
-          );
+	  NAME = '". $_POST['newname'] ."',
+          CATEGORY = '". $_POST['newtype'] ."',
+          DESCRIPTION = '". $_POST['newdesc']."',
+          PHOTOS = '". $_POST['newimg']."',
+          HUMIDITY = '". $_POST['newhum']."',
+          TEMPERATURE = '". $_POST['newtemp']."',
+          BRIGHTNESS = '". $_POST['newlum']."',
+          PERIOD = '". $_POST['newperiod'] ."'
+	  WHERE name = '" . $_POST['plantmodif']."'
+          ");
           try {
             $modif->execute();
           }
           catch(Exception $e){
-            echo 'Message' . $e->getMessage();
+            echo 'Message : Erreur de modification';
+		echo $e->getMessage();
           }
         }
       ?>
